@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Explosion.gd" type="Script" id=1]
+[ext_resource path="res://bullet/HitEffect.gd" type="Script" id=1]
 [ext_resource path="res://assets/Player/Gun/On Hit/on hit_on hit_0.png" type="Texture" id=2]
 [ext_resource path="res://assets/Player/Gun/On Hit/on hit_on hit_2.png" type="Texture" id=3]
 [ext_resource path="res://assets/Player/Gun/On Hit/on hit_on hit_1.png" type="Texture" id=4]
@@ -13,10 +13,10 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[node name="Explosion" type="AnimatedSprite"]
+[node name="HitEffect" type="AnimatedSprite"]
 z_index = 1
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 0, 5 )
 script = ExtResource( 1 )

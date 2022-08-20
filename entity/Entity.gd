@@ -8,8 +8,10 @@ signal died
 
 export (int) var hp_max: int = 100 setget set_hp_max
 export (int) var hp: int = hp_max setget set_hp, get_hp
-export (int) var acc: int = 40          # aceleracion
-export (int) var max_speed: int = 100   # velocidad maxima de movimiento
+export (int) var acc: int = 40                               # aceleracion
+export (int) var max_speed: int = 100                        # velocidad maxima de movimiento
+export (bool) var is_knockback: bool = true
+export (float) var knockback_modifier: float = 0.1
 
 const FRICTION: float = 0.15
 
@@ -32,7 +34,8 @@ func move():
 	velocity = velocity.clamped(max_speed)        # limitamos la velocidad a la velocidad maxima	
 
 func die():
-	queue_free()
+	if not anim_player.is_playing():
+		queue_free()
 
 func receive_damage(damage: int):
 	self.hp -= damage
@@ -42,6 +45,8 @@ func _on_Hurtbox_area_entered(hitbox):
 	receive_damage(hitbox.damage)
 	if hitbox.is_in_group("bullet"):
 		hitbox.destroy()
+	
+	knockback_force(hitbox.global_position, hitbox.damage)
 
 func set_hp(value):
 	if value != hp:
@@ -61,3 +66,12 @@ func set_hp_max(value):
 
 func _on_Entity_died():
 	die()
+
+func knockback_force(damage_pos: Vector2, damage: int):
+	if is_knockback:
+		var knockback_direction = damage_pos.direction_to(self.global_position)  # direccion
+		var knockback_strength = damage * knockback_modifier                     # fuerza
+		var knockback = knockback_direction * knockback_strength                 # vector
+		
+		global_position += knockback # nueva posicion
+	
