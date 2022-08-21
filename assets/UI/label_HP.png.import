@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Astro_Astrounaut Death_09.png-a7cef18c9898e69e135cdb88939f6112.stex"
+path="res://.import/label_HP.png-de3c535d91de775a1204766e9a8d09cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/Death/Astro_Astrounaut Death_09.png"
-dest_files=[ "res://.import/Astro_Astrounaut Death_09.png-a7cef18c9898e69e135cdb88939f6112.stex" ]
+source_file="res://assets/UI/label_HP.png"
+dest_files=[ "res://.import/label_HP.png-de3c535d91de775a1204766e9a8d09cd.stex" ]
 
 [params]
 

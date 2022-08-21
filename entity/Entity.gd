@@ -42,11 +42,13 @@ func receive_damage(damage: int):
 	print(name + " received " + str(damage) + " damage")
 
 func _on_Hurtbox_area_entered(hitbox):
+	
 	receive_damage(hitbox.damage)
 	if hitbox.is_in_group("bullet"):
 		hitbox.destroy()
 	
-	knockback_force(hitbox.global_position, hitbox.damage)
+	if self.hp > 0:
+		knockback_force(hitbox.global_position, hitbox.damage)
 
 func set_hp(value):
 	if value != hp:

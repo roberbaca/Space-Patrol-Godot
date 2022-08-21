@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://entity/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
@@ -17,9 +17,32 @@
 [ext_resource path="res://assets/Player/IdleRight/Astro_Astrounaut Idle_3.png" type="Texture" id=15]
 [ext_resource path="res://assets/Player/Gun/Main Gun/main gun_Gun_0.png" type="Texture" id=16]
 [ext_resource path="res://bullet/PlayerBullet.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_05.png" type="Texture" id=18]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_01.png" type="Texture" id=19]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_02.png" type="Texture" id=20]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_04.png" type="Texture" id=21]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_06.png" type="Texture" id=22]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_03.png" type="Texture" id=23]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_07.png" type="Texture" id=24]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_08.png" type="Texture" id=25]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_09.png" type="Texture" id=26]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_11.png" type="Texture" id=27]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_10.png" type="Texture" id=28]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_00.png" type="Texture" id=29]
+[ext_resource path="res://shaders/whiten_material.tres" type="Material" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "death",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "hit",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 11 ), ExtResource( 13 ), ExtResource( 6 ), ExtResource( 15 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "idle",
@@ -60,6 +83,62 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ "run" ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "death"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "death" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "hit" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -140,6 +219,8 @@ shape = SubResource( 5 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/RESET = SubResource( 2 )
+anims/death = SubResource( 8 )
+anims/hit = SubResource( 9 )
 anims/idle = SubResource( 6 )
 anims/run = SubResource( 4 )
 
@@ -151,8 +232,10 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 
 [node name="Hurtbox" parent="." index="4"]
+material = null
 collision_layer = 2
 collision_mask = 4
+whiten_material = ExtResource( 30 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -1 )
@@ -170,9 +253,10 @@ position = Vector2( 34, 1 )
 position = Vector2( 18, 0 )
 
 [node name="FireRate" type="Timer" parent="." index="6"]
-wait_time = 0.2
+wait_time = 0.4
 one_shot = true
 
 [connection signal="died" from="." to="." method="_on_Player_died"]
+[connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
 
 [editable path="Hurtbox"]

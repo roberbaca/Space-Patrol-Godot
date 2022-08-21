@@ -10,6 +10,7 @@ onready var weapon = $Weapon
 onready var sight = $Weapon/Sight
 onready var fire_rate = $FireRate
 
+
 func _process(delta: float):
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	
@@ -63,4 +64,9 @@ func fire():
 		fire_rate.start()
 
 func _on_Player_died():
-	print("died")
+	weapon.visible = false
+	is_alive = false
+	anim_player.play("death")
+
+func _on_Player_hp_changed(new_hp):
+	print("ouch")

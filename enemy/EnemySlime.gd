@@ -23,7 +23,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		anim_player.play("move")
 
 func chase():
-	if path:
+	if path and player:
 		var vector_to_next_point: Vector2 = path[0] - global_position
 		var distance_to_next_point: float = vector_to_next_point.length()
 		if distance_to_next_point < enemy_velocity: # cuando alcanzamos el sig punto, lo sacamos del array
@@ -39,4 +39,7 @@ func chase():
 			animated_sprite.flip_h = true
 
 func _on_PathTimer_timeout():
-	path = navigation.get_simple_path(global_position, player.position)
+	if player:
+		path = navigation.get_simple_path(global_position, player.position)
+	elif not player:
+		return

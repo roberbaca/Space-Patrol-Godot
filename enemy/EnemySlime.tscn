@@ -167,6 +167,7 @@ script = ExtResource( 11 )
 enemy_velocity = 1
 
 [node name="AnimatedSprite" parent="." index="0"]
+material = null
 frames = SubResource( 1 )
 animation = "move"
 playing = true
