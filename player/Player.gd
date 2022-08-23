@@ -59,7 +59,7 @@ func fire():
 	if bullet:
 		var bullet_instance = bullet.instance()
 		get_tree().current_scene.add_child(bullet_instance)
-		bullet_instance.position = muzzle.global_position
+		bullet_instance.global_position = muzzle.global_position
 		bullet_instance.rotation_degrees = weapon.rotation_degrees
 		fire_rate.start()
 

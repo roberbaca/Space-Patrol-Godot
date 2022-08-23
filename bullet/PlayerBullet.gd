@@ -16,8 +16,8 @@ func _physics_process(delta):
 func destroy():
 	var hit_effect_instance = hit_effect.instance()
 	get_tree().current_scene.add_child(hit_effect_instance)
-	hit_effect_instance.position = hit_effect_pos.global_position
-	hit_effect_instance.rotation_degrees = self.rotation_degrees
+	hit_effect_instance.global_position = hit_effect_pos.global_position
+	hit_effect_instance.rotation_degrees = self.rotation_degrees	
 	queue_free()
 
 func _on_PlayerBullet_area_entered(area):

@@ -28,7 +28,7 @@ shape = SubResource( 1 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="." index="2"]
 
 [node name="hit_pos" type="Node2D" parent="." index="3"]
-position = Vector2( 15, 0 )
+position = Vector2( 8, 0 )
 
 [connection signal="area_entered" from="." to="." method="_on_PlayerBullet_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_PlayerBullet_body_entered"]

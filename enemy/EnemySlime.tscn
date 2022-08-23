@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/Enemies/Slime/Green/Move or Idle/Move_Move and Idle Green_0.png" type="Texture" id=1]
 [ext_resource path="res://assets/Enemies/Slime/Green/Move or Idle/Move_Move and Idle Green_2.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://assets/Enemies/Slime/Green/Death/Death_Death Green_2.png" type="Texture" id=18]
 [ext_resource path="res://assets/Enemies/Slime/Green/Death/Death_Death Green_0.png" type="Texture" id=19]
 [ext_resource path="res://assets/Enemies/Slime/Green/Death/Death_Death Green_3.png" type="Texture" id=20]
+[ext_resource path="res://shaders/whiten_material.tres" type="Material" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -185,6 +186,7 @@ anims/move = SubResource( 3 )
 [node name="Hurtbox" parent="." index="3"]
 collision_layer = 4
 collision_mask = 8
+whiten_material = ExtResource( 21 )
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( -1, 0 )
