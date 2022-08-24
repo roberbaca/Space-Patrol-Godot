@@ -62,6 +62,12 @@ func fire():
 		bullet_instance.global_position = muzzle.global_position
 		bullet_instance.rotation_degrees = weapon.rotation_degrees
 		fire_rate.start()
+		
+		
+func heal(value):
+	hp += value
+	hp = clamp(hp, 0, hp_max)	
+	emit_signal("hp_changed", hp * 100/hp_max)
 
 func _on_Player_died():
 	weapon.visible = false

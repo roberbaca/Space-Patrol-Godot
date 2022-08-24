@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/Turret.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://levels/UI.gd" type="Script" id=7]
 [ext_resource path="res://obstacles/AlienTank.tscn" type="PackedScene" id=8]
 [ext_resource path="res://traps/Spikes.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pickups/Medkit.tscn" type="PackedScene" id=10]
 
 [node name="TestScene" type="Node2D"]
 position = Vector2( 15, 1 )
@@ -87,5 +88,8 @@ position = Vector2( 41, -90 )
 
 [node name="Turret" parent="." instance=ExtResource( 2 )]
 position = Vector2( -149, -89 )
+
+[node name="Medkit" parent="." instance=ExtResource( 10 )]
+position = Vector2( -33, -64 )
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
