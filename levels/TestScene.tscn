@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/Turret.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://obstacles/AlienTank.tscn" type="PackedScene" id=8]
 [ext_resource path="res://traps/Spikes.tscn" type="PackedScene" id=9]
 [ext_resource path="res://pickups/Medkit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://menu/Pause.gd" type="Script" id=11]
+[ext_resource path="res://destructibles/Crate.tscn" type="PackedScene" id=12]
 
 [node name="TestScene" type="Node2D"]
 position = Vector2( 15, 1 )
@@ -42,30 +44,22 @@ hp = 100
 max_speed = 90
 knockback_modifier = 1.0
 
-[node name="EnemySlime" parent="." instance=ExtResource( 3 )]
-position = Vector2( 87, 53 )
-z_index = 1
-hp = 100
-acc = 20
-max_speed = 60
-knockback_modifier = 0.5
+[node name="Items" type="Node2D" parent="."]
+position = Vector2( -15, -1 )
 
-[node name="EnemySlime2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -106, -51 )
-z_index = 1
-hp = 100
-acc = 20
-max_speed = 60
-knockback_modifier = 0.5
-enemy_velocity = 2
+[node name="Medkit" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( -18, -63 )
 
-[node name="EnemySlime3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -62, 69 )
-z_index = 1
-acc = 20
-max_speed = 60
-knockback_modifier = 0.5
-enemy_velocity = 3
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Spikes" parent="Traps" instance=ExtResource( 9 )]
+position = Vector2( 26, -90 )
+
+[node name="Spikes2" parent="Traps" instance=ExtResource( 9 )]
+position = Vector2( 41, -90 )
+
+[node name="Turret" parent="Traps" instance=ExtResource( 2 )]
+position = Vector2( -149, -89 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -78,18 +72,54 @@ position = Vector2( -100, 119 )
 [node name="Tank3" parent="Obstacles" instance=ExtResource( 8 )]
 position = Vector2( -157, -11 )
 
-[node name="Traps" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="."]
+position = Vector2( -15, -1 )
 
-[node name="Spikes" parent="Traps" instance=ExtResource( 9 )]
-position = Vector2( 26, -90 )
+[node name="EnemySlime" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 102, 54 )
+z_index = 1
+hp = 100
+acc = 20
+max_speed = 60
+knockback_modifier = 0.5
 
-[node name="Spikes2" parent="Traps" instance=ExtResource( 9 )]
-position = Vector2( 41, -90 )
+[node name="EnemySlime2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -91, -50 )
+z_index = 1
+hp = 100
+acc = 20
+max_speed = 60
+knockback_modifier = 0.5
+enemy_velocity = 2
 
-[node name="Turret" parent="." instance=ExtResource( 2 )]
-position = Vector2( -149, -89 )
+[node name="EnemySlime3" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -47, 70 )
+z_index = 1
+acc = 20
+max_speed = 60
+knockback_modifier = 0.5
+enemy_velocity = 3
 
-[node name="Medkit" parent="." instance=ExtResource( 10 )]
-position = Vector2( -33, -64 )
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Pause" type="Control" parent="PauseMenu"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 320.0
+margin_bottom = 300.0
+script = ExtResource( 11 )
+
+[node name="BlackOverlay" type="ColorRect" parent="PauseMenu/Pause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.352941 )
+
+[node name="destructibles" type="Node2D" parent="."]
+
+[node name="Crate" parent="destructibles" instance=ExtResource( 12 )]
+position = Vector2( 151, -26 )
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]

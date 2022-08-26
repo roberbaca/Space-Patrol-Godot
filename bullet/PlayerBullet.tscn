@@ -14,6 +14,7 @@ z_index = 1
 collision_layer = 8
 collision_mask = 5
 script = ExtResource( 3 )
+damage = 20
 bullet_speed = 150
 hit_effect = ExtResource( 4 )
 

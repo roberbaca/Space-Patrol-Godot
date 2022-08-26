@@ -8,7 +8,9 @@ export (PackedScene) var bullet: PackedScene = preload("res://bullet/PlayerBulle
 onready var muzzle = $Weapon/Muzzle
 onready var weapon = $Weapon
 onready var sight = $Weapon/Sight
+onready var flash = $Weapon/Flash
 onready var fire_rate = $FireRate
+onready var screen_shake = $Camera/Camera2D/ScreenShake
 
 
 func _process(delta: float):
@@ -27,7 +29,7 @@ func _process(delta: float):
 			anim_player.play("idle") # player esta quieto
 			
 		# Disparo de proyectiles
-		if Input.is_action_pressed("ui_fire") and fire_rate.is_stopped():
+		if Input.is_action_just_pressed("ui_fire") and fire_rate.is_stopped():
 			fire()
 	
 		# Rotacion del arma
@@ -35,21 +37,22 @@ func _process(delta: float):
 		if get_global_mouse_position().x < position.x:
 			weapon.flip_v = true
 		else:
-			weapon.flip_v = false
+			weapon.flip_v = false	
 			
 		handle_camera()
 		get_input()
 
 func get_input():
-	move_direction = Vector2.ZERO
-	if Input.is_action_pressed("ui_down"):
-		move_direction += Vector2.DOWN
-	if Input.is_action_pressed("ui_up"):
-		move_direction += Vector2.UP
-	if Input.is_action_pressed("ui_left"):
-		move_direction += Vector2.LEFT
-	if Input.is_action_pressed("ui_right"):
-		move_direction += Vector2.RIGHT
+	if is_alive:
+		move_direction = Vector2.ZERO
+		if Input.is_action_pressed("ui_down"):
+			move_direction += Vector2.DOWN
+		if Input.is_action_pressed("ui_up"):
+			move_direction += Vector2.UP
+		if Input.is_action_pressed("ui_left"):
+			move_direction += Vector2.LEFT
+		if Input.is_action_pressed("ui_right"):
+			move_direction += Vector2.RIGHT
 
 func handle_camera():
 	var new_camera_position = global_position + (get_global_mouse_position() - global_position) * SMOOTH
@@ -57,6 +60,8 @@ func handle_camera():
 
 func fire():
 	if bullet:
+		anim_player.play("flash")
+		#screen_shake.start()
 		var bullet_instance = bullet.instance()
 		get_tree().current_scene.add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position
@@ -73,6 +78,11 @@ func _on_Player_died():
 	weapon.visible = false
 	is_alive = false
 	anim_player.play("death")
+	coll_shape.disabled = true
+	
 
 func _on_Player_hp_changed(new_hp):
 	print("ouch")
+
+func _on_FireRate_timeout():	
+	flash.visible = false

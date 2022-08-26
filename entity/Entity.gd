@@ -23,7 +23,7 @@ onready var hurtbox = $Hurtbox
 var move_direction: Vector2 = Vector2.ZERO  # vector movimiento
 var velocity: Vector2 = Vector2.ZERO        # vector velocidad
 
-func _physics_process(delta: float):
+func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 	velocity = lerp(velocity, Vector2.ZERO, FRICTION) # interpolamos la velocidad para un movimiento mas natural
 	move()
@@ -47,7 +47,7 @@ func _on_Hurtbox_area_entered(hitbox):
 	if hitbox.is_in_group("bullet"):
 		hitbox.destroy()
 	
-	if self.hp > 0:
+	if self.hp > 0 and !hitbox.is_in_group("bullet"):
 		knockback_force(hitbox.global_position, hitbox.damage)
 
 func set_hp(value):
