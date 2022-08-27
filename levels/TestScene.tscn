@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/Turret.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://pickups/Medkit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://menu/Pause.gd" type="Script" id=11]
 [ext_resource path="res://destructibles/Crate.tscn" type="PackedScene" id=12]
+[ext_resource path="res://obstacles/Ship.tscn" type="PackedScene" id=13]
+[ext_resource path="res://destructibles/Rock.tscn" type="PackedScene" id=14]
 
 [node name="TestScene" type="Node2D"]
 position = Vector2( 15, 1 )
@@ -59,7 +61,7 @@ position = Vector2( 26, -90 )
 position = Vector2( 41, -90 )
 
 [node name="Turret" parent="Traps" instance=ExtResource( 2 )]
-position = Vector2( -149, -89 )
+position = Vector2( -12, 137 )
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -71,6 +73,10 @@ position = Vector2( -100, 119 )
 
 [node name="Tank3" parent="Obstacles" instance=ExtResource( 8 )]
 position = Vector2( -157, -11 )
+
+[node name="Ship" parent="Obstacles" instance=ExtResource( 13 )]
+position = Vector2( 135, -157 )
+scale = Vector2( 1.5, 1.5 )
 
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2( -15, -1 )
@@ -121,5 +127,17 @@ color = Color( 0, 0, 0, 0.352941 )
 
 [node name="Crate" parent="destructibles" instance=ExtResource( 12 )]
 position = Vector2( 151, -26 )
+
+[node name="Rock" parent="destructibles" instance=ExtResource( 14 )]
+position = Vector2( -25, -152 )
+
+[node name="Rock2" parent="destructibles" instance=ExtResource( 14 )]
+position = Vector2( -66, -152 )
+
+[node name="Rock3" parent="destructibles" instance=ExtResource( 14 )]
+position = Vector2( -110, -149 )
+
+[node name="Rock4" parent="destructibles" instance=ExtResource( 14 )]
+position = Vector2( -152, -151 )
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]

@@ -10,7 +10,7 @@ export (float) var duration = 0.2
 onready var camera = get_parent()
 
 # funcion para iniciar el shake effect
-func start():
+func start(amplitude, duration, frequency):
 	self.amplitude = amplitude
 	$Duration.wait_time = duration
 	$Frequency.wait_time = 1 / float(frequency)

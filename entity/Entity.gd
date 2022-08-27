@@ -47,6 +47,9 @@ func _on_Hurtbox_area_entered(hitbox):
 	if hitbox.is_in_group("bullet"):
 		hitbox.destroy()
 	
+	#if self.hp > 0 and !hitbox.is_in_group("bullet"):
+	#	knockback_force(hitbox.global_position, hitbox.damage)
+	
 	if self.hp > 0 and !hitbox.is_in_group("bullet"):
 		knockback_force(hitbox.global_position, hitbox.damage)
 

@@ -11,6 +11,7 @@ func _process(delta):
 		chase()
 
 func _on_EnemySlime_died():
+	enemy_velocity = 0
 	anim_player.play("death")
 
 func _on_EnemySlime_hp_changed(new_hp):
@@ -23,7 +24,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		anim_player.play("move")
 
 func chase():
-	if path and player:
+	if path and player and self.hp > 0:
 		var vector_to_next_point: Vector2 = path[0] - global_position
 		var distance_to_next_point: float = vector_to_next_point.length()
 		if distance_to_next_point < enemy_velocity: # cuando alcanzamos el sig punto, lo sacamos del array

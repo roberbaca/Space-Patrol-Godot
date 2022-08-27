@@ -61,7 +61,7 @@ func handle_camera():
 func fire():
 	if bullet:
 		anim_player.play("flash")
-		#screen_shake.start()
+		#screen_shake.start(2, 0.2, 15)
 		var bullet_instance = bullet.instance()
 		get_tree().current_scene.add_child(bullet_instance)
 		bullet_instance.global_position = muzzle.global_position
@@ -84,5 +84,5 @@ func _on_Player_died():
 func _on_Player_hp_changed(new_hp):
 	print("ouch")
 
-func _on_FireRate_timeout():	
+func _on_FireRate_timeout():
 	flash.visible = false
