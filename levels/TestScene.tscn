@@ -108,6 +108,7 @@ enemy_velocity = 3
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="Pause" type="Control" parent="PauseMenu"]
 pause_mode = 2
