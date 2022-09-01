@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/Turret.tscn" type="PackedScene" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://destructibles/Crate.tscn" type="PackedScene" id=12]
 [ext_resource path="res://obstacles/Ship.tscn" type="PackedScene" id=13]
 [ext_resource path="res://destructibles/Rock.tscn" type="PackedScene" id=14]
+[ext_resource path="res://menu/Button.tscn" type="PackedScene" id=15]
+[ext_resource path="res://assets/fonts/FtyStrategycideNcv-elGl_24.tres" type="DynamicFont" id=16]
+[ext_resource path="res://levels/GameOver.gd" type="Script" id=17]
 
 [node name="TestScene" type="Node2D"]
 position = Vector2( 15, 1 )
@@ -108,7 +111,6 @@ enemy_velocity = 3
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="Pause" type="Control" parent="PauseMenu"]
 pause_mode = 2
@@ -123,6 +125,70 @@ script = ExtResource( 11 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.352941 )
+
+[node name="Title" type="Label" parent="PauseMenu/Pause/BlackOverlay"]
+margin_left = 111.0
+margin_top = 36.0
+margin_right = 211.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 0.933333, 0.384314, 0.227451, 1 )
+custom_fonts/font = ExtResource( 16 )
+text = "Game Paused"
+
+[node name="Continue" parent="PauseMenu/Pause/BlackOverlay" instance=ExtResource( 15 )]
+margin_left = 125.0
+margin_top = 82.0
+margin_right = 195.0
+margin_bottom = 98.0
+text = "Continue"
+
+[node name="Quit" parent="PauseMenu/Pause/BlackOverlay" instance=ExtResource( 15 )]
+margin_left = 125.0
+margin_top = 104.0
+margin_right = 195.0
+margin_bottom = 120.0
+text = "quit"
+
+[node name="GameOverScreen" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="GameOver" type="Control" parent="GameOverScreen"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 320.0
+margin_bottom = 300.0
+script = ExtResource( 17 )
+
+[node name="BlackOverlay" type="ColorRect" parent="GameOverScreen/GameOver"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.352941 )
+
+[node name="Title" type="Label" parent="GameOverScreen/GameOver/BlackOverlay"]
+margin_left = 111.0
+margin_top = 36.0
+margin_right = 211.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 0.933333, 0.384314, 0.227451, 1 )
+custom_fonts/font = ExtResource( 16 )
+text = "You are dead"
+
+[node name="Retry" parent="GameOverScreen/GameOver/BlackOverlay" instance=ExtResource( 15 )]
+margin_left = 125.0
+margin_top = 82.0
+margin_right = 195.0
+margin_bottom = 98.0
+focus_mode = 2
+text = "Retry ?"
+
+[node name="Quit" parent="GameOverScreen/GameOver/BlackOverlay" instance=ExtResource( 15 )]
+margin_left = 125.0
+margin_top = 104.0
+margin_right = 195.0
+margin_bottom = 120.0
+focus_mode = 2
+text = "quit"
 
 [node name="destructibles" type="Node2D" parent="."]
 
@@ -142,3 +208,7 @@ position = Vector2( -110, -149 )
 position = Vector2( -152, -151 )
 
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
+[connection signal="pressed" from="PauseMenu/Pause/BlackOverlay/Continue" to="PauseMenu/Pause" method="_on_Continue_pressed"]
+[connection signal="pressed" from="PauseMenu/Pause/BlackOverlay/Quit" to="PauseMenu/Pause" method="_on_Quit_pressed"]
+[connection signal="pressed" from="GameOverScreen/GameOver/BlackOverlay/Retry" to="GameOverScreen/GameOver" method="_on_Retry_pressed"]
+[connection signal="pressed" from="GameOverScreen/GameOver/BlackOverlay/Quit" to="GameOverScreen/GameOver" method="_on_Quit_pressed"]
