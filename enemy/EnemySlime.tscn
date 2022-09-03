@@ -41,7 +41,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=5]
-radius = 8.0
+radius = 7.0
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -156,10 +156,10 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 8.0
+radius = 7.0
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 9.0
+radius = 7.0
 
 [node name="EnemySlime" groups=["enemy"] instance=ExtResource( 9 )]
 collision_layer = 4
@@ -169,6 +169,7 @@ enemy_velocity = 1
 
 [node name="AnimatedSprite" parent="." index="0"]
 material = null
+scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "move"
 playing = true

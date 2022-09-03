@@ -11,7 +11,8 @@ func _ready():
 
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
-	global_position += bullet_speed * direction * delta
+	global_position += bullet_speed * direction
+	
 
 func destroy():
 	var hit_effect_instance = hit_effect.instance()
@@ -20,11 +21,12 @@ func destroy():
 	hit_effect_instance.rotation_degrees = self.rotation_degrees	
 	queue_free()
 
-func _on_PlayerBullet_area_entered(area):
+func _on_PlayerBullet_area_entered(area):	
 	destroy()
 
-func _on_PlayerBullet_body_entered(body):
+func _on_PlayerBullet_body_entered(body: Node):	
 	destroy()
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+

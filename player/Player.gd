@@ -27,7 +27,15 @@ func _process(delta: float):
 			anim_player.play("run")
 		else:
 			anim_player.play("idle") # player esta quieto
+			$Shadow.global_position.x = global_position.x
 			
+		# Posicion de la sombra
+		if animated_sprite.flip_h and move_direction != Vector2.ZERO:
+			$Shadow.global_position.x = global_position.x + 1
+		if not animated_sprite.flip_h and move_direction != Vector2.ZERO:
+			$Shadow.global_position.x = global_position.x - 1
+		
+		
 		# Disparo de proyectiles
 		if Input.is_action_just_pressed("ui_fire") and fire_rate.is_stopped():
 			fire()

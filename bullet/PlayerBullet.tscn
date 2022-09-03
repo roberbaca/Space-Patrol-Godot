@@ -13,9 +13,10 @@ height = 10.0
 z_index = 1
 collision_layer = 8
 collision_mask = 5
+monitoring = true
 script = ExtResource( 3 )
 damage = 20
-bullet_speed = 150
+bullet_speed = 3
 hit_effect = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
