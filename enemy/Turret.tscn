@@ -53,12 +53,12 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 16, 16 )
+extents = Vector2( 15, 15 )
 
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Gun:animation")
+tracks/0/path = NodePath("Gun:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -67,39 +67,15 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "shoot" ]
+"values": [ 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../Gun:frame")
+tracks/1/path = NodePath("Gun:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Gun:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Gun:animation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -135,12 +111,13 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 16, 16 )
+extents = Vector2( 14, 11 )
 
 [node name="Turret" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource( 3 )
+turret_hp = 20.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
@@ -159,10 +136,10 @@ frames = SubResource( 13 )
 animation = "shoot"
 
 [node name="Cannon1" type="Node2D" parent="Gun"]
-position = Vector2( 18, -5 )
+position = Vector2( 30, -5 )
 
 [node name="Cannon2" type="Node2D" parent="Gun"]
-position = Vector2( 18, 5 )
+position = Vector2( 30, 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 15 )
@@ -178,6 +155,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 modulate = Color( 0.921569, 1, 0, 1 )
+position = Vector2( 1, 0 )
 shape = SubResource( 16 )
 
 [connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

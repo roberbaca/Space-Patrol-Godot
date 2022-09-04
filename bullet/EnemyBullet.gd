@@ -8,10 +8,9 @@ func _ready():
 	connect("body_entered", self, "_on_EnemyBullet_body_entered") 
 	get_node("VisibilityNotifier2D").connect("screen_exited", self, "_on_screen_exited")
 
-
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
-	global_position += bullet_speed * direction * delta
+	global_position += bullet_speed * direction
 
 func destroy():
 	var hit_effect_instance = hit_effect.instance()
@@ -21,9 +20,9 @@ func destroy():
 	queue_free()
 
 func _on_EnemyBullet_area_entered(area):
-	destroy()
+	pass
 
-func _on_EnemyBullet_body_entered(body):
+func _on_EnemyBullet_body_entered(body: Node):
 	destroy()
 
 func _on_VisibilityNotifier2D_screen_exited():

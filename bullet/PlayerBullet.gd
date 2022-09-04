@@ -21,10 +21,10 @@ func destroy():
 	hit_effect_instance.rotation_degrees = self.rotation_degrees	
 	queue_free()
 
-func _on_PlayerBullet_area_entered(area):	
-	destroy()
+func _on_PlayerBullet_area_entered(area):
+	pass
 
-func _on_PlayerBullet_body_entered(body: Node):	
+func _on_PlayerBullet_body_entered(body: Node):
 	destroy()
 
 func _on_VisibilityNotifier2D_screen_exited():

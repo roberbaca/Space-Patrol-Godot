@@ -4,7 +4,7 @@ func _ready():
 	$Buttons/NewGame.grab_focus()
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene("res://levels/TestScene.tscn")
+	get_tree().change_scene("res://levels/Level1.tscn")
 
 func _on_NewGame_pressed():
 	$FadeIn.show()

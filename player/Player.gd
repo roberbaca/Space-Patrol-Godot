@@ -83,11 +83,12 @@ func heal(value):
 	emit_signal("hp_changed", hp * 100/hp_max)
 
 func _on_Player_died():
+	move_direction = Vector2.ZERO
 	weapon.visible = false
+	$Shadow.visible = false
 	is_alive = false
 	anim_player.play("death")
 	coll_shape.disabled = true
-	
 
 func _on_Player_hp_changed(new_hp):
 	print("ouch")

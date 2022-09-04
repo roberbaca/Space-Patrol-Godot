@@ -1,7 +1,7 @@
 extends Control
 
 func _on_Retry_pressed():
-	pass # Replace with function body.
+	get_tree().reload_current_scene()
 
 func _on_Quit_pressed():
 	get_tree().quit()

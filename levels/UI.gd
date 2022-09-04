@@ -18,3 +18,4 @@ func update_health(new_value: int):
 # señal conectada con player para ver la variacion de la vida
 func _on_Player_hp_changed(new_hp):
 	update_health(new_hp)
+
