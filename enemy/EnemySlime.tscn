@@ -162,13 +162,13 @@ radius = 7.0
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id=9]
-radius = 80.2247
+radius = 107.117
 
 [node name="EnemySlime" groups=["enemy"] instance=ExtResource( 9 )]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource( 11 )
-enemy_velocity = 1
+enemy_velocity = 2
 
 [node name="AnimatedSprite" parent="." index="0"]
 material = null

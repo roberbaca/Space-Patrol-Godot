@@ -53,7 +53,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 15, 15 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -111,7 +111,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 14, 11 )
+extents = Vector2( 16, 16 )
 
 [node name="Turret" type="StaticBody2D"]
 collision_layer = 4
@@ -155,7 +155,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 modulate = Color( 0.921569, 1, 0, 1 )
-position = Vector2( 1, 0 )
 shape = SubResource( 16 )
 
 [connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]

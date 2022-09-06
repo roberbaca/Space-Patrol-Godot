@@ -1,19 +1,18 @@
 extends Entity
 
 var path: PoolVector2Array
-var is_chasing: bool = false
+#var is_chasing: bool = false
 var target = null
-export var enemy_velocity = 1
+export var enemy_velocity = 2
 
 onready var navigation: Navigation2D = get_tree().current_scene.get_node("Navigation2D")
 onready var player: KinematicBody2D = get_tree().current_scene.get_node("Player")
 
 func _process(delta):
-	if hp > 0 and is_chasing:
+	if hp > 0:
 		chase()
 
-
-func _on_EnemySlime_died():
+func _on_EnemySlime_died():	
 	enemy_velocity = 0
 	anim_player.play("death")
 
@@ -22,12 +21,13 @@ func _on_EnemySlime_hp_changed(new_hp):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":
+		Globals.enemy_killed()
 		queue_free()
 	elif anim_name == "hit":
 		anim_player.play("move")
 
 func chase():
-	if path and target and self.hp > 0:
+	if path and target:
 		var vector_to_next_point: Vector2 = path[0] - global_position
 		var distance_to_next_point: float = vector_to_next_point.length()
 		if distance_to_next_point < enemy_velocity: # cuando alcanzamos el sig punto, lo sacamos del array
@@ -51,9 +51,9 @@ func _on_PathTimer_timeout():
 func _on_DetectRadius_body_entered(body):
 	if body.name == "Player":
 		target = body
-		is_chasing = true
+		#is_chasing = true
 
 func _on_DetectRadius_body_exited(body):
 	if body == target:
 		target = null
-		is_chasing = false
+		#is_chasing = false

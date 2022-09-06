@@ -36,18 +36,15 @@ func move():
 func die():
 	if not anim_player.is_playing():
 		queue_free()
-
+	
 func receive_damage(damage: int):
 	self.hp -= damage
-	print(name + " received " + str(damage) + " damage")
+	#print(name + " received " + str(damage) + " damage")
 
 func _on_Hurtbox_area_entered(hitbox):
 	receive_damage(hitbox.damage)
 	if hitbox.is_in_group("bullet"):
 		hitbox.destroy()
-	
-	#if self.hp > 0 and !hitbox.is_in_group("bullet"):
-	#	knockback_force(hitbox.global_position, hitbox.damage)
 	
 	if self.hp > 0 and !hitbox.is_in_group("bullet"):
 		knockback_force(hitbox.global_position, hitbox.damage)
@@ -56,7 +53,9 @@ func set_hp(value):
 	if value != hp:
 		hp = clamp(value, 0, hp_max) # la vida solo puede ser mayor que cero y menor que el maximo
 		emit_signal("hp_changed", hp)
-		if hp == 0:
+		if hp <= 0:
+			coll_shape.disabled = true
+			$Hurtbox/CollisionShape2D.disabled = true
 			emit_signal("died")
 
 func get_hp():
@@ -65,8 +64,6 @@ func get_hp():
 func set_hp_max(value):
 	if value != hp_max:
 		hp_max = max(0, value)
-		emit_signal("hp_max_changed", hp_max)
-		self.hp = hp
 
 func _on_Entity_died():
 	die()

@@ -24,6 +24,10 @@ config/name="Alien Patrol Godot"
 run/main_scene="res://titleScreen/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://globals/Globals.gd"
+
 [display]
 
 window/size/width=320

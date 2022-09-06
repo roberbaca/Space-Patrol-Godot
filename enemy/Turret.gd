@@ -41,6 +41,7 @@ func _process(delta):
 	if turret_hp <= 0:
 		coll_shape.disabled = true
 		explode()
+		Globals.enemy_killed()
 		queue_free()
 
 

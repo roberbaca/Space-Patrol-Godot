@@ -91,7 +91,8 @@ func _on_Player_died():
 	coll_shape.disabled = true
 
 func _on_Player_hp_changed(new_hp):
-	print("ouch")
+	pass
+	#print("ouch")
 
 func _on_FireRate_timeout():
 	flash.visible = false
