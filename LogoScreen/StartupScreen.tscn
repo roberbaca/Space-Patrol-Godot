@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://LogoScreen/LogoStartup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/TimeandSpace-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://LogoScreen/StartupScreen.gd" type="Script" id=3]
+[ext_resource path="res://assets/Sounds/FlickeringLightSound.wav" type="AudioStream" id=4]
+[ext_resource path="res://effects/FadeIn.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 21
+font_data = ExtResource( 2 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.95
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="StartupScreen" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.0156863, 0.027451, 1 )
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+modulate = Color( 1.1, 1.1, 1.2, 1 )
+use_parent_material = true
+anchor_left = 0.467
+anchor_top = 0.548
+anchor_right = 0.467
+anchor_bottom = 0.548
+margin_left = -149.44
+margin_top = -168.64
+margin_right = 170.56
+margin_bottom = 149.36
+rect_pivot_offset = Vector2( 160, 160 )
+
+[node name="RNBGames" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -54.0
+margin_top = 41.0
+margin_right = 35.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 3 )
+text = "Rnb games"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Logo" parent="Control" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1.3, 1 )
+position = Vector2( 148, 143 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 1
+
+[node name="Tween" type="Tween" parent="."]
+playback_process_mode = 0
+
+[node name="ChangeSceneTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 1.8
+one_shot = true
+
+[node name="AnimationPlayTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.4
+one_shot = true
+autostart = true
+
+[node name="LightFlickerSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
+[node name="FadeIn" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[connection signal="animation_finished" from="Control/Logo" to="." method="_on_Logo_animation_finished"]
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_ChangeSceneTimer_timeout"]
+[connection signal="timeout" from="AnimationPlayTimer" to="." method="_on_AnimationPlayTimer_timeout"]
+[connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

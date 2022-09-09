@@ -8,6 +8,7 @@ func _ready():
 	Input.set_custom_mouse_cursor(crosshair, Input.CURSOR_ARROW, Vector2(16,16))
 	Globals.connect("killed", self, "enemy_count")
 	enemies_count = $Enemies.get_child_count()
+	Globals.enemies_total = enemies_count
 	print("Total Enemies: ", enemies_count)
 
 func _on_Player_hp_changed(new_hp):
