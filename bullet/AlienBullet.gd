@@ -5,7 +5,7 @@ export (PackedScene) var hit_effect: PackedScene = preload("res://bullet/HitEffe
 onready var hit_effect_pos = $hit_pos
 
 func _ready():
-	connect("body_entered", self, "_on_EnemyBullet_body_entered") 
+	connect("body_entered", self, "_on_AlienBullet_body_entered") 
 	get_node("VisibilityNotifier2D").connect("screen_exited", self, "_on_screen_exited")
 
 func _physics_process(delta):
@@ -19,11 +19,13 @@ func destroy():
 	hit_effect_instance.rotation_degrees = self.rotation_degrees
 	queue_free()
 
+
+func _on_AlienBullet_area_entered(area):
+	pass # Replace with function body.
+
+
+func _on_AlienBullet_body_entered(body: Node):
+	destroy()
+
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-
-func _on_EnemyBullet_area_entered(area):
-	pass
-
-func _on_EnemyBullet_body_entered(body: Node):
-	destroy()

@@ -38,7 +38,7 @@ func _process(delta: float):
 		
 		# Disparo de proyectiles
 		if Input.is_action_just_pressed("ui_fire") and fire_rate.is_stopped():
-			fire()
+			shoot()
 	
 		# Rotacion del arma
 		weapon.look_at(get_global_mouse_position())
@@ -66,7 +66,7 @@ func handle_camera():
 	var new_camera_position = global_position + (get_global_mouse_position() - global_position) * SMOOTH
 	$Camera.global_position = new_camera_position
 
-func fire():
+func shoot():
 	if bullet:
 		anim_player.play("flash")
 		#screen_shake.start(2, 0.2, 15)

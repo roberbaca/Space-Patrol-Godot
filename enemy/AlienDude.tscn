@@ -1,0 +1,231 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://entity/Entity.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_06.png" type="Texture" id=2]
+[ext_resource path="res://enemy/AlienDude.gd" type="Script" id=3]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_05.png" type="Texture" id=4]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_11.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_07.png" type="Texture" id=6]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_10.png" type="Texture" id=7]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_04.png" type="Texture" id=8]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_09.png" type="Texture" id=9]
+[ext_resource path="res://assets/Player/Death/Astro_Astrounaut Death_08.png" type="Texture" id=10]
+[ext_resource path="res://assets/Enemies/alien/idle/Alien_Idle_0.png" type="Texture" id=11]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_4.png" type="Texture" id=12]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_1.png" type="Texture" id=13]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_6.png" type="Texture" id=14]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_2.png" type="Texture" id=15]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_5.png" type="Texture" id=16]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_0.png" type="Texture" id=17]
+[ext_resource path="res://assets/Player/Gun/Gun/gun_Gun_0.png" type="Texture" id=18]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_7.png" type="Texture" id=19]
+[ext_resource path="res://assets/Enemies/alien/run/Alien_Run_3.png" type="Texture" id=20]
+[ext_resource path="res://bullet/AlienBullet.tscn" type="PackedScene" id=25]
+[ext_resource path="res://assets/Enemies/alien/idle/Alien_Idle_1.png" type="Texture" id=26]
+[ext_resource path="res://assets/Enemies/alien/idle/Alien_Idle_2.png" type="Texture" id=27]
+[ext_resource path="res://assets/Enemies/alien/idle/Alien_Idle_4.png" type="Texture" id=28]
+[ext_resource path="res://assets/Enemies/alien/idle/Alien_Idle_3.png" type="Texture" id=29]
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "death",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=32]
+radius = 9.0
+height = 8.0
+
+[sub_resource type="Animation" id=33]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "death"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "death" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "run"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "run" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=38]
+radius = 9.0
+height = 8.0
+
+[sub_resource type="CircleShape2D" id=42]
+radius = 133.057
+
+[node name="AlienDude" instance=ExtResource( 1 )]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 3 )
+speed = 20
+alien_bullet = ExtResource( 25 )
+weapon_speed = 50.0
+patrol_type = "patrol"
+
+[node name="AnimatedSprite" parent="." index="0"]
+frames = SubResource( 31 )
+animation = "idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -4 )
+shape = SubResource( 32 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/RESET = SubResource( 33 )
+anims/death = SubResource( 40 )
+anims/idle = SubResource( 41 )
+anims/run = SubResource( 36 )
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2( 0, -4 )
+shape = SubResource( 38 )
+
+[node name="Weapon" type="Sprite" parent="." index="4"]
+position = Vector2( 1, 0 )
+texture = ExtResource( 18 )
+offset = Vector2( 6, -1 )
+
+[node name="Muzzle" type="Node2D" parent="Weapon" index="0"]
+position = Vector2( 20, 0 )
+
+[node name="Sight" type="Node2D" parent="Weapon" index="1"]
+position = Vector2( 18, 0 )
+
+[node name="DetectRadius" type="Area2D" parent="." index="5"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius" index="0"]
+shape = SubResource( 42 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="6"]
+enabled = true
+cast_to = Vector2( 200, 0 )
+collision_mask = 3
+
+[node name="ReloadTimer" type="Timer" parent="RayCast2D" index="0"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="died" from="." to="." method="_on_AlienDude_died"]
+[connection signal="hp_changed" from="." to="." method="_on_AlienDude_hp_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="DetectRadius" to="." method="_on_DetectRadius_body_entered"]
+[connection signal="body_exited" from="DetectRadius" to="." method="_on_DetectRadius_body_exited"]
+[connection signal="timeout" from="RayCast2D/ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
+
+[editable path="Hurtbox"]

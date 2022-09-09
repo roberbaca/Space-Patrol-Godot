@@ -55,7 +55,7 @@ func shoot():
 		get_tree().current_scene.add_child(bullet_instance1)
 		get_tree().current_scene.add_child(bullet_instance2)
 		bullet_instance1.global_position = cannon1.global_position
-		bullet_instance1.global_rotation  = ray_cast.global_rotation		
+		bullet_instance1.global_rotation  = ray_cast.global_rotation
 		bullet_instance2.global_position = cannon2.global_position
 		bullet_instance2.global_rotation  = ray_cast.global_rotation
 	

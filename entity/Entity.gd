@@ -8,7 +8,7 @@ signal died
 
 export (int) var hp_max: int = 100 setget set_hp_max
 export (int) var hp: int = hp_max setget set_hp, get_hp
-export (int) var acc: int = 40                               # aceleracion
+export (int) var speed: int = 40                               # aceleracion
 export (int) var max_speed: int = 100                        # velocidad maxima de movimiento
 export (bool) var is_knockback: bool = true
 export (float) var knockback_modifier: float = 0.1
@@ -30,7 +30,7 @@ func _physics_process(delta):
 	
 func move():
 	move_direction = move_direction.normalized()  # normalizamos el vector movimiento
-	velocity += move_direction * acc 
+	velocity += move_direction * speed 
 	velocity = velocity.clamped(max_speed)        # limitamos la velocidad a la velocidad maxima	
 
 func die():
