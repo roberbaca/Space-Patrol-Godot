@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/Enemies/Slime/Green/Move or Idle/Move_Move and Idle Green_0.png" type="Texture" id=1]
 [ext_resource path="res://assets/Enemies/Slime/Green/Move or Idle/Move_Move and Idle Green_2.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://assets/Enemies/Slime/Green/Death/Death_Death Green_0.png" type="Texture" id=19]
 [ext_resource path="res://assets/Enemies/Slime/Green/Death/Death_Death Green_3.png" type="Texture" id=20]
 [ext_resource path="res://shaders/whiten_material.tres" type="Material" id=21]
+[ext_resource path="res://assets/Sounds/slime8.wav" type="AudioStream" id=22]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -215,6 +216,10 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectRadius" index="0"]
 shape = SubResource( 9 )
+
+[node name="SFXDied" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource( 22 )
+volume_db = -5.0
 
 [connection signal="died" from="." to="." method="_on_EnemySlime_died"]
 [connection signal="hp_changed" from="." to="." method="_on_EnemySlime_hp_changed"]

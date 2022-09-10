@@ -22,7 +22,7 @@ func _ready():
 	target = find_target()
 
 func _process(delta):
-	if target != null:
+	if target != null and target.hp > 0:
 		# rotation del raycast
 		var angle_to_target: float = global_position.direction_to(target.global_position).angle()
 		ray_cast.global_rotation = angle_to_target
@@ -36,9 +36,12 @@ func _process(delta):
 		if ray_cast.is_colliding():         
 			if reload_timer.is_stopped(): 
 				anim_player.play("shoot")
+				$SFXShoot.play()
 				shoot()
+	else: 
+		return
 	
-	if turret_hp <= 0:
+	if turret_hp == 0:
 		coll_shape.disabled = true
 		explode()
 		Globals.enemy_killed()
@@ -80,8 +83,9 @@ func _on_Area2D_area_entered(hitbox):
 		hitbox.destroy()
 		
 func explode():
-	# creamos una explosion
+	# creamos una explosion	
 	var explosion_instance: Node2D = explosion.instance()
 	get_tree().current_scene.add_child(explosion_instance)
 	explosion_instance.global_position = global_position
+	
 

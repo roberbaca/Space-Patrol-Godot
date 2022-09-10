@@ -1,7 +1,7 @@
 extends Control
 
 func _on_Retry_pressed():
-	get_tree().reload_current_scene()
+	Globals.restart_game()
 
 func _on_Quit_pressed():
 	get_tree().quit()

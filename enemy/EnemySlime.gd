@@ -12,12 +12,18 @@ func _process(delta):
 	if hp > 0:
 		chase()
 
-func _on_EnemySlime_died():	
+func _on_EnemySlime_died():
+	$Hurtbox/CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = true
 	enemy_velocity = 0
 	anim_player.play("death")
+	if not $SFXDied.is_playing():
+		$SFXDied.play()
+	
 
 func _on_EnemySlime_hp_changed(new_hp):
-	anim_player.play("hit")
+	if self.hp > 0:
+		anim_player.play("hit")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "death":

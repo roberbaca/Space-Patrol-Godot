@@ -42,7 +42,8 @@ func receive_damage(damage: int):
 	#print(name + " received " + str(damage) + " damage")
 
 func _on_Hurtbox_area_entered(hitbox):
-	receive_damage(hitbox.damage)
+	if self.hp > 0:
+		receive_damage(hitbox.damage)
 	if hitbox.is_in_group("bullet"):
 		hitbox.destroy()
 	
@@ -53,7 +54,7 @@ func set_hp(value):
 	if value != hp:
 		hp = clamp(value, 0, hp_max) # la vida solo puede ser mayor que cero y menor que el maximo
 		emit_signal("hp_changed", hp)
-		if hp <= 0:
+		if hp == 0:
 			coll_shape.disabled = true
 			$Hurtbox/CollisionShape2D.disabled = true
 			emit_signal("died")

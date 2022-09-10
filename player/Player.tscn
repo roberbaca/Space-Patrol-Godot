@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://entity/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
@@ -35,6 +35,10 @@
 [ext_resource path="res://assets/Player/Gun/Muzzle Flash/muzzle flash_muzzle flash_2.png" type="Texture" id=33]
 [ext_resource path="res://assets/Player/Gun/Muzzle Flash/muzzle flash_muzzle flash_1.png" type="Texture" id=34]
 [ext_resource path="res://assets/Player/Shadow/shadow.png" type="Texture" id=35]
+[ext_resource path="res://assets/Sounds/shoot-3.wav" type="AudioStream" id=36]
+[ext_resource path="res://assets/Sounds/Replenish.wav" type="AudioStream" id=37]
+[ext_resource path="res://assets/Sounds/gruntsound.wav" type="AudioStream" id=38]
+[ext_resource path="res://assets/Sounds/scream-4.ogg" type="AudioStream" id=39]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -379,8 +383,23 @@ offset = Vector2( 16, 1 )
 wait_time = 0.2
 one_shot = true
 
+[node name="SFXShoot" type="AudioStreamPlayer" parent="." index="8"]
+stream = ExtResource( 36 )
+
+[node name="SFXHeal" type="AudioStreamPlayer" parent="." index="9"]
+stream = ExtResource( 37 )
+volume_db = -5.0
+
+[node name="SFXDied" type="AudioStreamPlayer" parent="." index="10"]
+stream = ExtResource( 38 )
+
+[node name="SFXScream" type="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource( 39 )
+volume_db = 5.0
+
 [connection signal="died" from="." to="." method="_on_Player_died"]
 [connection signal="hp_changed" from="." to="." method="_on_Player_hp_changed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="FireRate" to="." method="_on_FireRate_timeout"]
 
 [editable path="Hurtbox"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/logos/logoTitle.png" type="Texture" id=2]
+[ext_resource path="res://assets/Sounds/Menu Selection Click.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/fonts/FtyStrategycideNcv-elGl.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/Tilemap Alien Planet/Space ship/Spaceship_Spaceship_0.png" type="Texture" id=7]
 [ext_resource path="res://assets/Tilemap Alien Planet/Space ship/Spaceship_Spaceship_5.png" type="Texture" id=8]
@@ -806,19 +807,18 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 8, 0, 0, 9, 0, 0, 18, 6, 0, 19, 5, 0
 [node name="Foliage" type="AnimatedSprite" parent="Background"]
 position = Vector2( 139, 124 )
 frames = SubResource( 2 )
-frame = 4
 playing = true
 
 [node name="Trees" type="AnimatedSprite" parent="Background"]
 position = Vector2( 31, 164 )
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Trees2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 316, 53 )
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 
@@ -831,7 +831,7 @@ flip_h = true
 [node name="Ship" type="AnimatedSprite" parent="Background"]
 position = Vector2( 270, 112 )
 frames = SubResource( 4 )
-frame = 3
+frame = 7
 playing = true
 
 [node name="Version" type="Label" parent="."]
@@ -879,6 +879,10 @@ text = "Quit"
 
 [node name="FadeIn" parent="." instance=ExtResource( 29 )]
 visible = false
+
+[node name="SFXSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 8.0
 
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Buttons/Credits" to="." method="_on_Credits_pressed"]

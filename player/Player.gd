@@ -38,6 +38,7 @@ func _process(delta: float):
 		
 		# Disparo de proyectiles
 		if Input.is_action_just_pressed("ui_fire") and fire_rate.is_stopped():
+			$SFXShoot.play()
 			shoot()
 	
 		# Rotacion del arma
@@ -78,21 +79,28 @@ func shoot():
 		
 		
 func heal(value):
+	$SFXHeal.play()
 	hp += value
 	hp = clamp(hp, 0, hp_max)	
 	emit_signal("hp_changed", hp * 100/hp_max)
 
 func _on_Player_died():
+	hp = 0
+	$SFXDied.play()
+	anim_player.play("death")
 	move_direction = Vector2.ZERO
 	weapon.visible = false
 	$Shadow.visible = false
-	is_alive = false
-	anim_player.play("death")
 	coll_shape.disabled = true
+	$Hurtbox/CollisionShape2D.disabled = true
+	is_alive = false
 
 func _on_Player_hp_changed(new_hp):
-	pass
-	#print("ouch")
+	if hp > 0:
+		$SFXScream.play()
 
 func _on_FireRate_timeout():
 	flash.visible = false
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	pass
