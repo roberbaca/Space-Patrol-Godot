@@ -85,6 +85,7 @@ func heal(value):
 	emit_signal("hp_changed", hp * 100/hp_max)
 
 func _on_Player_died():
+	screen_shake.start(4, 0.4, 15)
 	hp = 0
 	$SFXDied.play()
 	anim_player.play("death")

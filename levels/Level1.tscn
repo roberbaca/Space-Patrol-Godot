@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://HUD/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://menu/GameOverScreen.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://misc/EndLevelDoor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://misc/Portal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/music/Race to Mars.mp3" type="AudioStream" id=14]
+[ext_resource path="res://misc/Torch.tscn" type="PackedScene" id=15]
 
 [sub_resource type="NavigationPolygon" id=11]
 vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -615,17 +616,32 @@ outlines = [ PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 ) ]
 7/shapes = [  ]
 7/z_index = 0
 
+[sub_resource type="OccluderPolygon2D" id=12]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=13]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="OccluderPolygon2D" id=14]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=6]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
+[sub_resource type="OccluderPolygon2D" id=15]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
 [sub_resource type="ConvexPolygonShape2D" id=7]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=16]
+polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -641,6 +657,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 0/region = Rect2( 96, 64, 16, 16 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
+0/occluder = SubResource( 12 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -662,6 +679,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 1/region = Rect2( 96, 80, 16, 16 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
+1/occluder = SubResource( 13 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -683,6 +701,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 2/region = Rect2( 112, 80, 16, 16 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
+2/occluder = SubResource( 14 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shape_offset = Vector2( 0, 0 )
 2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -704,6 +723,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 3/region = Rect2( 160, 80, 16, 16 )
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
+3/occluder = SubResource( 15 )
 3/navigation_offset = Vector2( 0, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -725,6 +745,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 4/region = Rect2( 176, 80, 16, 16 )
 4/tile_mode = 0
 4/occluder_offset = Vector2( 0, 0 )
+4/occluder = SubResource( 16 )
 4/navigation_offset = Vector2( 0, 0 )
 4/shape_offset = Vector2( 0, 0 )
 4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -760,6 +781,11 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
+
+[sub_resource type="Environment" id=17]
+background_mode = 4
+glow_enabled = true
+glow_hdr_threshold = 1.5
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 6 )
@@ -798,13 +824,11 @@ format = 1
 tile_data = PoolIntArray( 196638, 1, 0, 327691, 11, 0, 327710, 14, 0, 393226, 9, 0, 393227, 8, 0, 589851, 14, 0, 589857, 0, 0, 655383, 28, 0, 655386, 14, 0, 655392, 18, 0, 655393, 16, 0, 720927, 4, 0, 720928, 26, 0, 720929, 27, 0, 786461, 5, 0, 786462, 18, 0, 786463, 23, 0, 786464, 23, 0, 786465, 27, 0, 851998, 26, 0, 851999, 25, 0, 852000, 23, 0, 852001, 23, 0, 852002, 16, 0, 917533, 18, 0, 917534, 23, 0, 917535, 23, 0, 917536, 31, 0, 917537, 25, 0, 917538, 17, 0, 983047, 0, 0, 983050, 0, 0, 983051, 4, 0, 983069, 19, 0, 983070, 21, 0, 983071, 21, 0, 983072, 23, 0, 983073, 27, 0, 983074, 15, 0, 983079, 5, 0, 1048582, 28, 0, 1048584, 2, 0, 1048585, 20, 0, 1048586, 20, 0, 1048587, 3, 0, 1048605, 15, 0, 1048606, 22, 0, 1048608, 19, 0, 1048609, 17, 0, 1114120, 6, 0, 1114121, 31, 0, 1114122, 24, 0, 1114123, 27, 0, 1114146, 15, 0, 1179655, 1, 0, 1179657, 29, 0, 1179658, 25, 0, 1179659, 27, 0, 1179684, 14, 0, 1245194, 26, 0, 1245195, 31, 0, 1245196, 7, 0, 1245219, 14, 0, 1245220, 8, 0, 1245222, 28, 0, 1245224, 5, 0, 1310729, 5, 0, 1310730, 29, 0, 1310731, 17, 0, 1310732, 15, 0, 1310741, 28, 0, 1310758, 4, 0, 1310759, 18, 0, 1310760, 16, 0, 1376295, 29, 0, 1376296, 30, 0, 1441823, 0, 0, 1441831, 22, 0, 1441833, 15, 0, 1507344, 14, 0, 1507345, 14, 0, 1507348, 5, 0, 1507357, 18, 0, 1507358, 20, 0, 1507359, 20, 0, 1507360, 16, 0, 1572874, 15, 0, 1572881, 14, 0, 1572892, 5, 0, 1572893, 26, 0, 1572894, 23, 0, 1572895, 24, 0, 1572896, 27, 0, 1572897, 1, 0, 1638426, 18, 0, 1638427, 20, 0, 1638428, 20, 0, 1638429, 23, 0, 1638430, 25, 0, 1638431, 23, 0, 1638432, 23, 0, 1638433, 20, 0, 1638434, 20, 0, 1638435, 16, 0, 1703962, 19, 0, 1703963, 23, 0, 1703964, 25, 0, 1703965, 24, 0, 1703966, 31, 0, 1703967, 23, 0, 1703968, 24, 0, 1703969, 23, 0, 1703970, 23, 0, 1703971, 17, 0, 1769499, 19, 0, 1769500, 21, 0, 1769501, 21, 0, 1769502, 21, 0, 1769503, 23, 0, 1769504, 31, 0, 1769505, 27, 0, 1769506, 15, 0, 1769507, 4, 0, 1835037, 22, 0, 1835038, 4, 0, 1835039, 19, 0, 1835040, 23, 0, 1835041, 27, 0, 1900562, 18, 0, 1900563, 1, 0, 1900572, 14, 0, 1900573, 14, 0, 1900576, 19, 0, 1900577, 17, 0, 1900582, 28, 0, 1966097, 18, 0, 1966098, 23, 0, 1966099, 5, 0, 1966109, 9, 0, 1966110, 14, 0, 2031632, 4, 0, 2031633, 26, 0, 2031634, 23, 0, 2031635, 20, 0, 2031636, 16, 0, 2031641, 28, 0, 2097169, 19, 0, 2097170, 21, 0, 2097171, 23, 0, 2097172, 27, 0, 2162707, 19, 0, 2162708, 17, 0, 2228244, 15, 0, 2293792, 15, 0 )
 
 [node name="WallShadows" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 65562, 0, 0, 131080, 0, 0, 131081, 1, 0, 131082, 4, 0, 131083, 4, 0, 131098, 0, 0, 131099, 1, 0, 131100, 1, 0, 131101, 4, 0, 131102, 4, 0, 131103, 1, 0, 131104, 4, 0, 131105, 4, 0, 196616, 6, 0, 196634, 6, 0, 262152, 6, 0, 262170, 6, 0, 327692, 4, 0, 327706, 6, 0, 393242, 0, 0, 393247, 1, 0, 393248, 4, 0, 458778, 6, 0, 524310, 0, 0, 524314, 0, 0, 524315, 4, 0, 524316, 4, 0, 524317, 2, 0, 524318, 3, 0, 524319, 4, 0, 524320, 1, 0, 524321, 4, 0, 589831, 0, 0, 589832, 4, 0, 589846, 0, 0, 589847, 4, 0, 589848, 4, 0, 589849, 4, 0, 655365, 0, 0, 655367, 6, 0, 655382, 6, 0, 720901, 0, 0, 720902, 4, 0, 720909, 4, 0, 720910, 1, 0, 720911, 4, 0, 720918, 6, 0, 786437, 6, 0, 786442, 6, 0, 786448, 4, 0, 786458, 6, 0, 786466, 4, 0, 786467, 4, 0, 786468, 4, 0, 786469, 4, 0, 851973, 6, 0, 851977, 1, 0, 851994, 6, 0, 917507, 0, 0, 917530, 6, 0, 917542, 4, 0, 917543, 4, 0, 983043, 0, 0, 983044, 4, 0, 983066, 6, 0, 983068, 6, 0, 1048579, 6, 0, 1048602, 0, 0, 1048603, 1, 0, 1114115, 6, 0, 1114124, 6, 0, 1114138, 6, 0, 1114152, 4, 0, 1114153, 4, 0, 1114154, 1, 0, 1179651, 6, 0, 1179656, 4, 0, 1179657, 4, 0, 1179658, 1, 0, 1179659, 4, 0, 1179667, 0, 0, 1179674, 6, 0, 1179681, 6, 0, 1245187, 6, 0, 1245203, 0, 0, 1245204, 4, 0, 1245205, 4, 0, 1245210, 6, 0, 1245217, 6, 0, 1245221, 6, 0, 1310720, 0, 0, 1310721, 4, 0, 1310722, 4, 0, 1310739, 6, 0, 1310746, 6, 0, 1310753, 6, 0, 1310756, 1, 0, 1376256, 6, 0, 1376263, 6, 0, 1376271, 4, 0, 1376272, 4, 0, 1376273, 1, 0, 1376274, 4, 0, 1376282, 6, 0, 1376286, 1, 0, 1376287, 4, 0, 1376288, 4, 0, 1441795, 6, 0, 1441798, 1, 0, 1441818, 6, 0, 1507331, 6, 0, 1507350, 4, 0, 1507351, 4, 0, 1507352, 4, 0, 1507353, 1, 0, 1572873, 6, 0, 1572880, 6, 0, 1638409, 6, 0, 1638416, 6, 0, 1703945, 6, 0, 1703950, 4, 0, 1703951, 4, 0, 1769484, 6, 0, 1835020, 6, 0, 1835042, 4, 0, 1835043, 1, 0, 1835044, 4, 0, 1835045, 1, 0, 1835046, 1, 0, 1900556, 6, 0, 1900569, 6, 0, 1966095, 6, 0, 1966105, 6, 0, 2031631, 6, 0, 2031639, 4, 0, 2031640, 4, 0, 2097167, 6, 0, 2097183, 6, 0, 2162706, 6, 0, 2162717, 1, 0, 2162718, 4, 0, 2228242, 6, 0, 2293778, 6, 0 )
-
-[node name="Portal" parent="." instance=ExtResource( 13 )]
-position = Vector2( 481, 58 )
 
 [node name="Walls" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -951,14 +975,53 @@ enemy_velocity = 10
 position = Vector2( 478, 428 )
 turret_hp = 100.0
 
+[node name="Misc" type="Node2D" parent="."]
+
+[node name="Torch" parent="Misc" instance=ExtResource( 15 )]
+position = Vector2( 200, 72 )
+frame = 1
+
+[node name="Torch2" parent="Misc" instance=ExtResource( 15 )]
+position = Vector2( 233, 167 )
+frame = 1
+
+[node name="Torch3" parent="Misc" instance=ExtResource( 15 )]
+position = Vector2( 327, 295 )
+frame = 1
+
+[node name="Torch4" parent="Misc" instance=ExtResource( 15 )]
+position = Vector2( 439, 120 )
+frame = 1
+
+[node name="Torch5" parent="Misc" instance=ExtResource( 15 )]
+position = Vector2( 520, 119 )
+frame = 1
+
+[node name="Torch6" parent="Misc" instance=ExtResource( 15 )]
+position = Vector2( 664, 264 )
+frame = 1
+
+[node name="Torch7" parent="Misc" instance=ExtResource( 15 )]
+position = Vector2( 432, 248 )
+frame = 7
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 153, 42 )
+
+[node name="Portal" parent="." instance=ExtResource( 13 )]
+position = Vector2( 481, 58 )
 
 [node name="EndLevelDoor" parent="." instance=ExtResource( 12 )]
 position = Vector2( 480.5, 113.5 )
 
 [node name="MusicLevel1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.180392, 0.27451, 0.286275, 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 17 )
 
 [connection signal="died" from="Player" to="." method="_on_Player_died"]
 [connection signal="hp_changed" from="Player" to="." method="_on_Player_hp_changed"]

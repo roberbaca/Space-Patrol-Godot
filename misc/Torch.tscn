@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_4.png" type="Texture" id=1]
+[ext_resource path="res://assets/Misc/light/TorchLight.png" type="Texture" id=2]
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_6.png" type="Texture" id=5]
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_3.png" type="Texture" id=6]
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_7.png" type="Texture" id=7]
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_5.png" type="Texture" id=8]
+[ext_resource path="res://assets/Misc/Torch/Torch_Torch_2.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "breath"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Light2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.95, 1.0 ]
+}
+
+[node name="Torch" type="AnimatedSprite"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 2 )
+color = Color( 0.968627, 0.627451, 0.298039, 1 )
+energy = 1.5
+shadow_gradient_length = 3.0
+shadow_filter = 2
+shadow_filter_smooth = 50.0
+
+[node name="Light2D2" type="Light2D" parent="."]
+visible = false
+texture = ExtResource( 2 )
+texture_scale = 0.8
+color = Color( 0.894118, 0.501961, 0.121569, 1 )
+energy = 0.75
+shadow_gradient_length = 3.0
+shadow_filter = 2
+shadow_filter_smooth = 50.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "breath"
+anims/RESET = SubResource( 2 )
+anims/breath = SubResource( 3 )

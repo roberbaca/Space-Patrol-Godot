@@ -12,6 +12,7 @@ radius = 4.0
 radius = 4.0
 
 [node name="EnemyBullet" instance=ExtResource( 1 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 collision_mask = 7
 script = ExtResource( 3 )
 damage = 10
@@ -41,9 +42,17 @@ monitoring = true
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[connection signal="area_entered" from="." to="." method="_on_EnemyBullet_area_entered"]
+[node name="Light2D" parent="." index="5"]
+position = Vector2( 0, 0 )
+texture_scale = 0.05
+color = Color( 0.929412, 0.0862745, 0.0862745, 1 )
+
+[node name="Light2D2" parent="." index="6"]
+visible = false
+
 [connection signal="area_entered" from="." to="." method="_on_AlienBullet_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_EnemyBullet_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_EnemyBullet_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_AlienBullet_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_EnemyBullet_body_entered"]
 
 [editable path="Hitbox"]

@@ -14,12 +14,5 @@ func _ready():
 	MusicTitleScreen.stop()
 	$MusicLevel1.play()
 
-func enemy_count():
-	print("Enemies Killed: ", Globals.enemies_killed)
-	if enemies_count == Globals.enemies_killed:
-		print("NO MORE ENEMIES")
-		#$EndLevelDoor.visible = true
-		#$EndLevelDoor/AnimationPlayer.play("show")
-
 func _on_Player_died():
 	$GameOverScreen.visible = true

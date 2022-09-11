@@ -807,6 +807,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 8, 0, 0, 9, 0, 0, 18, 6, 0, 19, 5, 0
 [node name="Foliage" type="AnimatedSprite" parent="Background"]
 position = Vector2( 139, 124 )
 frames = SubResource( 2 )
+frame = 6
 playing = true
 
 [node name="Trees" type="AnimatedSprite" parent="Background"]
@@ -831,7 +832,7 @@ flip_h = true
 [node name="Ship" type="AnimatedSprite" parent="Background"]
 position = Vector2( 270, 112 )
 frames = SubResource( 4 )
-frame = 7
+frame = 5
 playing = true
 
 [node name="Version" type="Label" parent="."]
