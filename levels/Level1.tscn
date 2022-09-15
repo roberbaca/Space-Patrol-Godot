@@ -979,31 +979,31 @@ turret_hp = 100.0
 
 [node name="Torch" parent="Misc" instance=ExtResource( 15 )]
 position = Vector2( 200, 72 )
-frame = 1
+frame = 7
 
 [node name="Torch2" parent="Misc" instance=ExtResource( 15 )]
 position = Vector2( 233, 167 )
-frame = 1
+frame = 7
 
 [node name="Torch3" parent="Misc" instance=ExtResource( 15 )]
 position = Vector2( 327, 295 )
-frame = 1
+frame = 7
 
 [node name="Torch4" parent="Misc" instance=ExtResource( 15 )]
 position = Vector2( 439, 120 )
-frame = 1
+frame = 7
 
 [node name="Torch5" parent="Misc" instance=ExtResource( 15 )]
 position = Vector2( 520, 119 )
-frame = 1
+frame = 7
 
 [node name="Torch6" parent="Misc" instance=ExtResource( 15 )]
 position = Vector2( 664, 264 )
-frame = 1
+frame = 7
 
 [node name="Torch7" parent="Misc" instance=ExtResource( 15 )]
 position = Vector2( 432, 248 )
-frame = 7
+frame = 5
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 153, 42 )

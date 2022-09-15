@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Alien Foliage_Shroom_2.png-b7525b707bf75f74718ce9e628740fa1.stex"
+path="res://.import/Alien Foliage_Shroom_2.png-8c2cbcb67a419f55c9771a5455223cbe.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Shroom_2.png"
-dest_files=[ "res://.import/Alien Foliage_Shroom_2.png-b7525b707bf75f74718ce9e628740fa1.stex" ]
+source_file="res://assets/Misc/Alien Foliage_Shroom_2.png"
+dest_files=[ "res://.import/Alien Foliage_Shroom_2.png-8c2cbcb67a419f55c9771a5455223cbe.stex" ]
 
 [params]
 

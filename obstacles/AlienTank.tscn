@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/Misc/alien tank/lab anims_Alien tank_4.png" type="Texture" id=6]
 [ext_resource path="res://assets/Misc/alien tank/lab anims_Alien tank_5.png" type="Texture" id=7]
 [ext_resource path="res://assets/Misc/alien tank/lab anims_Alien tank_3.png" type="Texture" id=8]
-[ext_resource path="res://obstacles/AlienTank.gd" type="Script" id=9]
+[ext_resource path="res://obstacles/ObstacleEntity.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=3]
 height = 16.0
@@ -41,6 +41,7 @@ shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

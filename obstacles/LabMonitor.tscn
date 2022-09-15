@@ -32,7 +32,7 @@ shape = SubResource( 3 )
 
 [node name="AnimatedSprite" parent="." index="1"]
 frames = SubResource( 1 )
-frame = 4
+frame = 6
 
 [node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( -1, -1.5 )

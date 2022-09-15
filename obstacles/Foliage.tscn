@@ -1,0 +1,49 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_6.png" type="Texture" id=1]
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_4.png" type="Texture" id=2]
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_3.png" type="Texture" id=4]
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_7.png" type="Texture" id=5]
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_2.png" type="Texture" id=6]
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_5.png" type="Texture" id=7]
+[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_0.png" type="Texture" id=8]
+[ext_resource path="res://obstacles/ObstacleEntity.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/Misc/light/light.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -8, 9, 0, 11, 3, 11, 10, 9, 10, 1, 6, -6, -7, -11, -9, -9, -7, -6, -7, -1, -8, 2, -5, 5 )
+
+[node name="Foliage" instance=ExtResource( 9 )]
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 1, 2 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="1"]
+frames = SubResource( 1 )
+frame = 4
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2( 1, 1 )
+shape = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="." index="3"]
+texture = ExtResource( 10 )
+texture_scale = 0.04
+color = Color( 1, 0.192157, 0.192157, 1 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." index="4"]
+occluder = SubResource( 4 )

@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=29 format=2]
 
+[ext_resource path="res://obstacles/Foliage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/logos/logoTitle.png" type="Texture" id=2]
 [ext_resource path="res://assets/Sounds/Menu Selection Click.wav" type="AudioStream" id=3]
+[ext_resource path="res://obstacles/Trees.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/FtyStrategycideNcv-elGl.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/Tilemap Alien Planet/Space ship/Spaceship_Spaceship_0.png" type="Texture" id=7]
 [ext_resource path="res://assets/Tilemap Alien Planet/Space ship/Spaceship_Spaceship_5.png" type="Texture" id=8]
@@ -11,20 +13,12 @@
 [ext_resource path="res://assets/Tilemap Alien Planet/Space ship/Spaceship_Spaceship_1.png" type="Texture" id=12]
 [ext_resource path="res://assets/Tilemap Alien Planet/Space ship/Spaceship_Spaceship_4.png" type="Texture" id=13]
 [ext_resource path="res://assets/Tilemap Alien Planet/Space ship/Spaceship_Spaceship_6.png" type="Texture" id=14]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_1.png" type="Texture" id=15]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_6.png" type="Texture" id=16]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_3.png" type="Texture" id=17]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_7.png" type="Texture" id=18]
 [ext_resource path="res://assets/Tilemap Alien Planet/alien tilemap.png" type="Texture" id=19]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_2.png" type="Texture" id=20]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_0.png" type="Texture" id=21]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_4.png" type="Texture" id=22]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Eye_5.png" type="Texture" id=23]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Shroom_1.png" type="Texture" id=24]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Shroom_2.png" type="Texture" id=25]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Shroom_3.png" type="Texture" id=26]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Shroom_4.png" type="Texture" id=27]
-[ext_resource path="res://assets/Tilemap Alien Planet/Foliage/Alien Foliage_Shroom_0.png" type="Texture" id=28]
+[ext_resource path="res://assets/Misc/Alien Foliage_Shroom_1.png" type="Texture" id=24]
+[ext_resource path="res://assets/Misc/Alien Foliage_Shroom_2.png" type="Texture" id=25]
+[ext_resource path="res://assets/Misc/Alien Foliage_Shroom_3.png" type="Texture" id=26]
+[ext_resource path="res://assets/Misc/Alien Foliage_Shroom_4.png" type="Texture" id=27]
+[ext_resource path="res://assets/Misc/Alien Foliage_Shroom_0.png" type="Texture" id=28]
 [ext_resource path="res://effects/FadeIn.tscn" type="PackedScene" id=29]
 [ext_resource path="res://titleScreen/TitleScreen.gd" type="Script" id=30]
 [ext_resource path="res://menu/Button.tscn" type="PackedScene" id=31]
@@ -749,14 +743,6 @@
 58/shapes = [  ]
 58/z_index = 0
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 21 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 16 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
-
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
 "frames": [ ExtResource( 28 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
@@ -804,22 +790,15 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 8, 0, 0, 9, 0, 0, 18, 6, 0, 19, 5, 0, 65536, 0, 0, 65543, 0, 0, 65544, 0, 0, 65555, 5, 0, 131091, 54, 0, 196626, 7, 0, 262151, 24, 0, 262152, 25, 0, 262153, 55, 0, 262161, 50, 0, 262162, 8, 0, 262163, 50, 0, 327686, 26, 0, 327687, 27, 0, 327688, 28, 0, 327689, 29, 0, 327690, 58, 0, 327692, 0, 0, 327693, 0, 0, 327697, 58, 0, 327698, 9, 0, 393222, 30, 0, 393223, 32, 0, 393224, 34, 0, 393225, 36, 0, 393226, 53, 0, 393228, 0, 0, 458757, 51, 0, 458758, 31, 0, 458759, 33, 0, 458760, 35, 0, 458761, 37, 0, 589826, 16, 0, 589827, 17, 0, 589829, 5, 0, 589835, 7, 0, 589843, 58, 0, 655360, 0, 0, 655361, 0, 0, 655362, 18, 0, 655363, 19, 0, 655364, 7, 0, 655365, 5, 0, 655366, 58, 0, 655370, 50, 0, 655371, 8, 0, 655372, 58, 0, 655373, 0, 0, 655377, 6, 0, 720897, 0, 0, 720900, 9, 0, 720902, 6, 0, 720907, 9, 0, 720908, 51, 0, 720912, 5, 0 )
 
-[node name="Foliage" type="AnimatedSprite" parent="Background"]
-position = Vector2( 139, 124 )
-frames = SubResource( 2 )
-frame = 6
-playing = true
+[node name="Foliage" parent="Background" instance=ExtResource( 1 )]
+frame = 0
 
-[node name="Trees" type="AnimatedSprite" parent="Background"]
-position = Vector2( 31, 164 )
-frames = SubResource( 7 )
-frame = 2
-playing = true
+[node name="Trees" parent="Background" instance=ExtResource( 4 )]
 
 [node name="Trees2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 316, 53 )
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 flip_h = true
 
@@ -832,7 +811,6 @@ flip_h = true
 [node name="Ship" type="AnimatedSprite" parent="Background"]
 position = Vector2( 270, 112 )
 frames = SubResource( 4 )
-frame = 5
 playing = true
 
 [node name="Version" type="Label" parent="."]
