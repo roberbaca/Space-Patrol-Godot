@@ -11,8 +11,7 @@ func _ready():
 
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
-	global_position += bullet_speed * direction
-	
+	global_position += bullet_speed * direction	
 
 func destroy():
 	var hit_effect_instance = hit_effect.instance()

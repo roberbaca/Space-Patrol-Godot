@@ -19,7 +19,6 @@ func destroy():
 	hit_effect_instance.rotation_degrees = self.rotation_degrees
 	queue_free()
 
-
 func _on_AlienBullet_area_entered(area):
 	pass # Replace with function body.
 

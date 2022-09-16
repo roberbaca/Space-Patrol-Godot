@@ -1,9 +1,9 @@
 extends KinematicBody2D
 class_name Entity # clase padre que se utilizara para todos los personajes
 
-#custom signals
-signal hp_changed( new_hp)         
-signal hp_max_changed( new_hp_max) 
+
+signal hp_changed(new_hp)       
+signal hp_max_changed(new_hp_max) 
 signal died 
 
 export (int) var hp_max: int = 100 setget set_hp_max
@@ -39,7 +39,6 @@ func die():
 	
 func receive_damage(damage: int):
 	self.hp -= damage
-	#print(name + " received " + str(damage) + " damage")
 
 func _on_Hurtbox_area_entered(hitbox):
 	if self.hp > 0:

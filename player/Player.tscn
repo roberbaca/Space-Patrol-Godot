@@ -323,7 +323,7 @@ knockback_modifier = 1.0
 bullet = ExtResource( 17 )
 
 [node name="Shadow" type="Sprite" parent="." index="0"]
-modulate = Color( 0.34902, 0.227451, 0.227451, 1 )
+modulate = Color( 0.34902, 0.227451, 0.227451, 0.568627 )
 position = Vector2( -0.5, 10 )
 texture = ExtResource( 35 )
 
@@ -402,15 +402,6 @@ volume_db = 5.0
 texture = ExtResource( 40 )
 texture_scale = 0.5
 shadow_enabled = true
-shadow_gradient_length = 3.0
-shadow_filter = 2
-shadow_filter_smooth = 50.0
-
-[node name="Light2D2" type="Light2D" parent="." index="13"]
-visible = false
-texture = ExtResource( 40 )
-texture_scale = 0.4
-energy = 0.6
 shadow_gradient_length = 3.0
 shadow_filter = 2
 shadow_filter_smooth = 50.0

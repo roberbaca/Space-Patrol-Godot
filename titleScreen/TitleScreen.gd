@@ -4,7 +4,6 @@ func _ready():
 	$Buttons/NewGame.grab_focus()
 	if not MusicTitleScreen.is_playing():
 		MusicTitleScreen.play()
-	#$MusicTitleScreen.play(30)
 
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene("res://levels/Level1.tscn")

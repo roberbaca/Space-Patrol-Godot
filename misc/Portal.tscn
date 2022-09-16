@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/Misc/Portal Spawner/portal animation_Animation 2_04.png" type="Texture" id=1]
 [ext_resource path="res://assets/Misc/Portal Spawner/portal animation_Animation 2_11.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/Misc/Portal Spawner/portal animation_Animation 2_21.png" type="Texture" id=22]
 [ext_resource path="res://assets/Misc/Portal Spawner/portal animation_Animation 2_22.png" type="Texture" id=23]
 [ext_resource path="res://assets/Misc/light/light.png" type="Texture" id=24]
+[ext_resource path="res://assets/Misc/Portal Spawner/portal.png.png" type="Texture" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -86,7 +87,6 @@ visible = false
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -94,7 +94,7 @@ anims/RESET = SubResource( 3 )
 anims/show = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 21 )
+texture = ExtResource( 25 )
 
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 24 )

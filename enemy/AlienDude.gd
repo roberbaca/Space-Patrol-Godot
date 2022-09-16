@@ -40,7 +40,7 @@ func _physics_process(delta):
 			position = Vector2()
 	
 func _process(delta):
-	if target:
+	if target and self.hp > 0:
 		# rotation del raycast
 		var angle_to_target: float = global_position.direction_to(target.global_position).angle()
 		ray_cast.global_rotation = angle_to_target
@@ -93,6 +93,6 @@ func _on_ReloadTimer_timeout():
 
 func _draw():
 	# dibujamos un mira laser
-	if target != null:
+	if target != null and self.hp > 0:
 		draw_circle((target.global_position - muzzle.global_position).rotated(-rotation), 1, laser_color)
 		draw_line(Vector2(), (target.global_position  - muzzle.global_position).rotated(-rotation), laser_color)

@@ -1,7 +1,6 @@
 extends Entity
 
 var path: PoolVector2Array
-#var is_chasing: bool = false
 var target = null
 export var enemy_velocity = 2
 
@@ -19,7 +18,6 @@ func _on_EnemySlime_died():
 	anim_player.play("death")
 	if not $SFXDied.is_playing():
 		$SFXDied.play()
-	
 
 func _on_EnemySlime_hp_changed(new_hp):
 	if self.hp > 0:
@@ -57,9 +55,7 @@ func _on_PathTimer_timeout():
 func _on_DetectRadius_body_entered(body):
 	if body.name == "Player":
 		target = body
-		#is_chasing = true
 
 func _on_DetectRadius_body_exited(body):
 	if body == target:
 		target = null
-		#is_chasing = false

@@ -3,7 +3,7 @@ extends Node
 const TRANS = Tween.TRANS_SINE
 const EASE = Tween. EASE_IN_OUT
 
-export (float) var frequency = 15
+export (float) var frequency = 15.0
 export (int) var amplitude = 8
 export (float) var duration = 0.2
 

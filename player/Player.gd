@@ -81,7 +81,7 @@ func shoot():
 func heal(value):
 	$SFXHeal.play()
 	hp += value
-	hp = clamp(hp, 0, hp_max)	
+	hp = clamp(hp, 0, hp_max)
 	emit_signal("hp_changed", hp * 100/hp_max)
 
 func _on_Player_died():
@@ -95,6 +95,7 @@ func _on_Player_died():
 	coll_shape.disabled = true
 	$Hurtbox/CollisionShape2D.disabled = true
 	is_alive = false
+
 
 func _on_Player_hp_changed(new_hp):
 	if hp > 0:
