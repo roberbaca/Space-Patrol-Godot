@@ -173,7 +173,6 @@ shape = SubResource( 16 )
 
 [node name="SFXOpen" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 35 )
-autoplay = true
 
 [node name="SFXExplode" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 34 )

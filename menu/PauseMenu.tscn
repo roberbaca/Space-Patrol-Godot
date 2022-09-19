@@ -13,6 +13,11 @@ font_data = SubResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0, 0, 0, 0.470588 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.933333, 0.384314, 0.227451, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -30,6 +35,10 @@ bg_color = Color( 0, 0, 0, 0.470588 )
 
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0, 0, 0, 0.392157 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 border_color = Color( 1, 1, 1, 1 )
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -67,6 +76,7 @@ margin_left = 125.0
 margin_top = 82.0
 margin_right = 195.0
 margin_bottom = 98.0
+custom_colors/font_color_hover = Color( 0.933333, 0.384314, 0.227451, 1 )
 custom_fonts/font = SubResource( 5 )
 custom_styles/hover = SubResource( 8 )
 custom_styles/pressed = SubResource( 9 )

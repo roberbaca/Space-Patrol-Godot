@@ -795,7 +795,7 @@ position = Vector2( 101, 131 )
 [node name="Trees2" type="AnimatedSprite" parent="Background"]
 position = Vector2( 316, 53 )
 frames = SubResource( 7 )
-frame = 2
+frame = 4
 playing = true
 flip_h = true
 
@@ -808,7 +808,7 @@ flip_h = true
 [node name="Ship" type="AnimatedSprite" parent="Background"]
 position = Vector2( 270, 112 )
 frames = SubResource( 4 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="Version" type="Label" parent="."]

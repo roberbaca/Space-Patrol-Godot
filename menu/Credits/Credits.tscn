@@ -43,7 +43,7 @@ extra_spacing_top = 4
 extra_spacing_bottom = 1
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=12]
 font_path = "res://assets/fonts/TimeandSpace-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
@@ -51,7 +51,7 @@ size = 8
 outline_color = Color( 0.933333, 0.384314, 0.227451, 1 )
 extra_spacing_top = 4
 extra_spacing_bottom = 1
-font_data = SubResource( 7 )
+font_data = SubResource( 12 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -82,16 +82,16 @@ margin_right = 43.0
 margin_bottom = 63.0
 custom_colors/font_color = Color( 0.898039, 0.231373, 0.266667, 1 )
 custom_fonts/font = SubResource( 9 )
-text = "Art"
+text = "Art by"
 
 [node name="Musictitle" type="Label" parent="."]
-margin_left = 256.0
-margin_top = 37.0
-margin_right = 304.0
-margin_bottom = 64.0
+margin_left = 240.0
+margin_top = 38.0
+margin_right = 312.0
+margin_bottom = 65.0
 custom_colors/font_color = Color( 0.898039, 0.231373, 0.266667, 1 )
 custom_fonts/font = SubResource( 5 )
-text = "Music"
+text = "Music by"
 
 [node name="DesignTitle" type="Label" parent="."]
 margin_left = 84.0
@@ -110,6 +110,14 @@ margin_bottom = 83.0
 custom_fonts/font = SubResource( 11 )
 text = "Moose Stache"
 
+[node name="Art6" type="Label" parent="."]
+margin_left = 281.0
+margin_top = 65.0
+margin_right = 313.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 11 )
+text = "DOS88"
+
 [node name="Art3" type="Label" parent="."]
 margin_left = 15.0
 margin_top = 76.0
@@ -118,6 +126,24 @@ margin_bottom = 91.0
 custom_colors/font_color = Color( 0.580392, 0.580392, 0.580392, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "moose-stache.itch.io"
+
+[node name="Art7" type="Label" parent="."]
+margin_left = 261.0
+margin_top = 78.0
+margin_right = 314.0
+margin_bottom = 93.0
+custom_colors/font_color = Color( 0.580392, 0.580392, 0.580392, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "\"crash landing\""
+
+[node name="Art8" type="Label" parent="."]
+margin_left = 262.0
+margin_top = 91.0
+margin_right = 313.0
+margin_bottom = 106.0
+custom_colors/font_color = Color( 0.580392, 0.580392, 0.580392, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "\"Race to mars\""
 
 [node name="Art4" type="Label" parent="."]
 margin_left = 15.0

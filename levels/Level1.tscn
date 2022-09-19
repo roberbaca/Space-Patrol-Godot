@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=80 format=2]
 
 [ext_resource path="res://HUD/UI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://menu/GameOverScreen.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://levels/Main.gd" type="Script" id=6]
 [ext_resource path="res://enemy/EnemySlime.tscn" type="PackedScene" id=7]
 [ext_resource path="res://enemy/AlienDude.tscn" type="PackedScene" id=8]
+[ext_resource path="res://menu/ControlsScreen.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/Tilemaps/AlienCave tileset.png" type="Texture" id=10]
 [ext_resource path="res://pickups/Medkit.tscn" type="PackedScene" id=11]
 [ext_resource path="res://misc/EndLevelDoor.tscn" type="PackedScene" id=12]
@@ -1202,6 +1203,8 @@ margin_bottom = 19.0
 
 [node name="PauseMenu" parent="." instance=ExtResource( 4 )]
 
+[node name="ControlsrScreen" parent="." instance=ExtResource( 9 )]
+
 [node name="Navigation2D" type="Navigation2D" parent="."]
 z_index = -1
 
@@ -1559,63 +1562,132 @@ position = Vector2( 0, 1 )
 
 [node name="EnemySlime6" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 65, 282 )
+__meta__ = {
+"_edit_lock_": true
+}
+speed = 10
+max_speed = 45
+enemy_velocity = 10
+
+[node name="EnemySlime7" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 210, 427 )
+speed = 10
+max_speed = 45
+enemy_velocity = 10
+
+[node name="EnemySlime8" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 381, 641 )
+speed = 10
+max_speed = 45
+enemy_velocity = 10
+
+[node name="EnemySlime13" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 534, 408 )
+speed = 10
+max_speed = 45
+enemy_velocity = 10
+
+[node name="EnemySlime14" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 613, 271 )
+speed = 10
+max_speed = 45
+enemy_velocity = 10
+
+[node name="EnemySlime15" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 589, 127 )
+speed = 10
+max_speed = 45
+enemy_velocity = 10
+
+[node name="EnemySlime16" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 449, 119 )
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="EnemySlime9" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 206, 333 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 
 [node name="EnemySlime2" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 559, 451 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="EnemySlime3" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 287, 265 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="EnemySlime10" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 136, 495 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="EnemySlime4" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 474, 606 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="EnemySlime12" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 692, 409 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="EnemySlime11" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 385, 346 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="EnemySlime5" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 446, 257 )
+__meta__ = {
+"_edit_lock_": true
+}
 speed = 10
 max_speed = 45
 enemy_velocity = 10
 
 [node name="AlienDude" parent="Enemies" instance=ExtResource( 8 )]
-position = Vector2( 20, 347 )
+position = Vector2( 22, 347 )
+__meta__ = {
+"_edit_lock_": true
+}
 patrol_type = "aim"
 
 [node name="AlienDude2" parent="Enemies" instance=ExtResource( 8 )]
 position = Vector2( 367, 90 )
+__meta__ = {
+"_edit_lock_": true
+}
 patrol_type = "aim"
 
 [node name="Path" type="Node2D" parent="Enemies"]
@@ -1666,7 +1738,7 @@ position = Vector2( 496, 301 )
 [node name="EndLevelDoor" parent="." instance=ExtResource( 12 )]
 position = Vector2( 480.5, 385 )
 
-[node name="MusicLevel1" type="AudioStreamPlayer" parent="."]
+[node name="MusicLevel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

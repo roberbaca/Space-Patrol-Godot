@@ -37,7 +37,7 @@ func _process(delta: float):
 		
 		
 		# Disparo de proyectiles
-		if Input.is_action_just_pressed("ui_fire") and fire_rate.is_stopped():
+		if Input.is_action_pressed("ui_fire") and fire_rate.is_stopped():
 			$SFXShoot.play()
 			shoot()
 	

@@ -12,7 +12,10 @@ func _ready():
 	enemies_count = $Enemies.get_child_count()
 	Globals.enemies_total = enemies_count	
 	MusicTitleScreen.stop()
-	$MusicLevel1.play()
+	$MusicLevel.play()
+	var level_name = get_tree().current_scene.name
+	print(level_name)
+	
 
 func _on_Player_died():
 	$GameOverScreen.visible = true

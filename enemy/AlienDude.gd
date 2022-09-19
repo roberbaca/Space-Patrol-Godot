@@ -33,7 +33,7 @@ func _physics_process(delta):
 	update() # para dibujar
 	
 	# si el state es "patrol", entonces el el enmigo se mueve siguiendo el path
-	if patrol_type == "patrol":
+	if patrol_type == "patrol" and self.hp > 0:
 		if parent is PathFollow2D:
 			parent.set_offset(parent.get_offset() + speed * delta)
 			anim_player.play("run")

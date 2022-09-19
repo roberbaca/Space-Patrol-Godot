@@ -400,7 +400,7 @@ volume_db = 5.0
 
 [node name="Light2D" type="Light2D" parent="." index="12"]
 texture = ExtResource( 40 )
-texture_scale = 0.5
+texture_scale = 0.4
 shadow_enabled = true
 shadow_gradient_length = 3.0
 shadow_filter = 2
